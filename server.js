@@ -6,28 +6,17 @@ const jwtAuthz = require('express-jwt-authz');
 var jwt = require('express-jwt');
 var jwks = require('jwks-rsa');
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('Listening on port 3000');
-});
+// app.listen(process.env.PORT || 3000, () => {
+//     console.log('Listening on port 3000');
+// });
 
 var names = ["Lily Thomas", "Simon Put"];
 
-var corsOptions = {
-    origin: function(origin, callback){
-        callback(null, 'http://localhost:4200');
-    },
-    credentials: true
-};
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // const checkScopes = jwtAuthz([ 'read:apnames' ]);
 
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
 
 var jwtCheck = jwt({
     secret: jwks.expressJwtSecret({
