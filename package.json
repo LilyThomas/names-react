@@ -1,0 +1,24 @@
+{
+  "name": "express-mongo-products",
+  "version": "1.0.0",
+  "description": "- [Demo](https://crud-express-mongo.herokuapp.com) - [Tutorial](http://zell-weekeat.com/crud-express-mongodb)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cors": "^2.8.4",
+    "ejs": "^2.6.1",
+    "express": "^4.13.3",
+    "mongo-express": "^0.51.1",
+    "mongodb": "^3.1.12"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "tsc-watch": "^1.0.31"
+  }
+}
