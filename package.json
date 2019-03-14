@@ -15,6 +15,7 @@
     "ejs": "^2.6.1",
     "express": "^4.13.3",
     "express-jwt": "^5.3.1",
+    "express-jwt-authz": "^2.1.1",
     "express-oauth2-bearer": "^0.3.0",
     "jwks-rsa": "^1.4.0",
     "mongo-express": "^0.51.1",
