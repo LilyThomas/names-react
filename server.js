@@ -13,10 +13,18 @@ var names = ["Lily Thomas", "Simon Put"];
 
 var corsOptions = {
     origin: function(origin, callback){
-        callback(null, 'http://*');
+        callback(null, 'http://localhost:4200');
     },
     credentials: true
 };
+
+app.use(cors(corsOptions));
+
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 var jwtCheck = jwt({
     secret: jwks.expressJwtSecret({
@@ -25,14 +33,12 @@ var jwtCheck = jwt({
         jwksRequestsPerMinute: 5,
         jwksUri: 'https://pettinder.eu.auth0.com/.well-known/jwks.json'
     }),
-    audience: 'returnnames.com',
+    aud: 'returnnames.com',
     issuer: 'https://pettinder.eu.auth0.com/',
     algorithms: ['RS256']
 });
 
 app.use(jwtCheck);
-
-app.use(cors(corsOptions));
 
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -42,7 +48,7 @@ app.use(cors(corsOptions));
 //
 // app.use(auth(strategies.openid({
 //     issuerBaseURL: 'https://pettinder.eu.auth0.com/',
-//     allowedAudiences: 'https://returnnames.com'
+//     allowedAudiences: 'returnnames.com'
 // })));
 
 app.get('/',
@@ -52,7 +58,7 @@ app.get('/',
     // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     // res.sendStatus(200);
     (req, res) => {
-    console.log(req.header("Autorization"))
+    console.log(req.header('authorization'))
     res.json(names);
 });
 
