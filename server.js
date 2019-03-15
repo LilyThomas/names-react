@@ -6,9 +6,9 @@ const jwtAuthz = require('express-jwt-authz');
 var jwt = require('express-jwt');
 var jwks = require('jwks-rsa');
 
-// app.listen(process.env.PORT || 3000, () => {
-//     console.log('Listening on port 3000');
-// });
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Listening on port 3000');
+});
 
 var names = ["Lily Thomas", "Simon Put"];
 
