@@ -6,6 +6,8 @@ const jwtAuthz = require('express-jwt-authz');
 var jwt = require('express-jwt');
 var jwks = require('jwks-rsa');
 
+// student code start
+
 app.listen(process.env.PORT || 80, () => {
     console.log('Listening on port 80');
 });
@@ -14,6 +16,8 @@ var names = ["Lily Thomas", "Simon Put"];
 
 
 app.use(cors());
+
+// student code end
 
 // const checkScopes = jwtAuthz([ 'read:apnames' ]);
 
@@ -32,22 +36,15 @@ var jwtCheck = jwt({
 //
 app.use(jwtCheck);
 
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
-//     next();
-// });
-//
-// app.use(auth(strategies.openid({
-//     issuerBaseURL: 'https://pettinder.eu.auth0.com/',
-//     allowedAudiences: 'returnnames.com'
-// })));
+// Student code start here
 
 app.get('/',
     // checkScopes,
 
     (req, res) => {
-    console.log(req.header('authorization'))
+    // console.log(req.header('authorization'))
     res.json(names);
 });
+
+// student code end here
 
